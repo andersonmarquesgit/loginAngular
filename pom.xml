@@ -11,7 +11,7 @@
 		<spring.version>4.1.4.RELEASE</spring.version>
 		<spring.mvc.version>4.1.4.RELEASE</spring.mvc.version>
 		<spring.data.version>1.2.0.RELEASE</spring.data.version>
-		<spring.security.version>3.1.2.RELEASE</spring.security.version>
+		<spring.security.version>4.0.2.RELEASE</spring.security.version>
 		<hibernate-version>5.0.1.Final</hibernate-version>
 		<h2.version>1.4.189</h2.version>
 		<bootstrap.version>2.3.1</bootstrap.version>
