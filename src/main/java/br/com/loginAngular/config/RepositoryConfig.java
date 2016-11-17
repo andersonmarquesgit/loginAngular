@@ -20,7 +20,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Configuration
 @EnableTransactionManagement
 @PropertySource("classpath:database.properties")
-@ComponentScan("br.com.loginAngular.repository")
+@ComponentScan(basePackages = {"br.com.loginAngular.repository", "br.com.loginAngular.model"})
 @EnableJpaRepositories("br.com.loginAngular.repository")
 public class RepositoryConfig {
 
@@ -54,7 +54,7 @@ public class RepositoryConfig {
 		LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
 		entityManagerFactoryBean.setDataSource(dataSource());
 		entityManagerFactoryBean.setPersistenceProviderClass(HibernatePersistenceProvider.class);
-		entityManagerFactoryBean.setPackagesToScan(env.getRequiredProperty(PROPERTY_NAME_ENTITYMANAGER_PACKAGES_TO_SCAN));
+		entityManagerFactoryBean.setPackagesToScan("br.com.loginAngular.repository", "br.com.loginAngular.model");
 		entityManagerFactoryBean.setJpaProperties(hibProperties());
 
 		return entityManagerFactoryBean;
