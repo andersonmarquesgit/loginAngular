@@ -8,7 +8,6 @@ public class LoginController {
 
 	@RequestMapping("/")
 	public String login(){
-	    System.out.println("Entrando no login");
-	    return "index.html";
+	    return "home";
 	}
 }
