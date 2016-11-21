@@ -1,7 +1,6 @@
 package br.com.loginAngular.config;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -23,8 +22,7 @@ import br.com.loginAngular.security.UserDetailsService;
 @ComponentScan("br.com.loginAngular.security")
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-	private static final Logger log = LoggerFactory
-			.getLogger(SecurityConfig.class);
+	private static final Logger log = Logger.getLogger(SecurityConfig.class);
 
 	@Autowired
 	private UserDetailsService userDetailsService;
@@ -35,6 +33,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
     private AuthenticationFailureHandler restAuthenticationFailureHandler;
 	   
+	public SecurityConfig() {
+		log.info("::::Inicialização do Security Config::::");
+	}
+
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth)
 			throws Exception {
@@ -43,7 +45,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	public void configure(WebSecurity web) throws Exception {
-		web.ignoring().antMatchers("/views/**", "/index.html", "/login.html");
+		web.ignoring().antMatchers("/views/**", "/resources/**", "/index.html", "/login.html");
 	}
 
 	@Override

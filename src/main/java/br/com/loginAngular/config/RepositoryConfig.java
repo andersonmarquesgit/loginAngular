@@ -5,6 +5,7 @@ import java.util.Properties;
 import javax.annotation.Resource;
 import javax.sql.DataSource;
 
+import org.apache.log4j.Logger;
 import org.hibernate.jpa.HibernatePersistenceProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -24,6 +25,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableJpaRepositories("br.com.loginAngular.repository")
 public class RepositoryConfig {
 
+	private static final Logger log = Logger.getLogger(RepositoryConfig.class);
+
 	private static final String PROPERTY_NAME_DATABASE_DRIVER = "db.driver";
 	private static final String PROPERTY_NAME_DATABASE_PASSWORD = "db.password";
 	private static final String PROPERTY_NAME_DATABASE_URL = "db.url";
@@ -36,6 +39,10 @@ public class RepositoryConfig {
 
 	@Resource
 	private Environment env;
+	
+	public RepositoryConfig() {
+		log.info("::::Inicialização do Repository Config::::");
+	}
 
 	@Bean
 	public DataSource dataSource() {
