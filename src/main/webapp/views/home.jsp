@@ -7,9 +7,16 @@
         <link rel="stylesheet" href="resources/css/bootstrap.min.css">
         <link rel="stylesheet" href="resources/css/bootstrap-theme.min.css">
         <script src="resources/js/lib/angular.min.js"></script>
+        <script src="resources/js/lib/angular-route.min.js"></script>
         <script src="resources/js/main.js"></script>
+        <script src="resources/js/controllers/fotos-controller.js"></script>
     </head>
-<body>
-    <h1>Home</h1>
-</body>
+	<body ng-controller="FotosController">
+	    <div class="container">
+	        <h1 class="text-center">Home</h1>
+	
+	         <img class="img-responsive center-block" src="{{foto.url}}" alt="{{foto.titulo}}" width="304" height="236">
+	
+	    </div><!-- fim container -->
+	</body>
 </html>
